@@ -20,3 +20,26 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* custom.css */
+.custom-nav-pills .nav-link.active {
+    background-color: forestgreen;
+    color: white;
+}
+
+.custom-nav-pills .nav-link {
+    color: forestgreen;
+}
+
+    .custom-nav-pills .nav-link:hover {
+        background-color: #e6f2e6;
+    }
+
+.btn-forestgreen {
+    background-color: forestgreen;
+    color: white;
+}
+
+    .btn-forestgreen:hover {
+        background-color: #228b22;
+    }

@@ -5,10 +5,10 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
+<h3 class="text-center my-4">@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 offset-md-3">
         <form id="profile-form" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
@@ -35,24 +35,24 @@
                 <label asp-for="Input.ProfilePicture">Profile Picture</label>
                 <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <img id="profilePicturePreview" src="@Model.Input.ProfilePicturePath" alt="Profile Picture Preview" style="max-width: 100%; height: auto;" />
+            <div class="mb-3 text-center">
+                <img id="profilePicturePreview" src="@Model.Input.ProfilePicturePath" alt="Profile Picture Preview" class="img-thumbnail" style="max-width: 100%; height: auto;" />
             </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg text-white" style="background-color: forestgreen;">Save</button>
         </form>
     </div>
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <script>
-        function previewImage(event) {
-            var reader = new FileReader();
-            reader.onload = function () {
-                var output = document.getElementById('profilePicturePreview');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            function previewImage(event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('profilePicturePreview');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
 }
